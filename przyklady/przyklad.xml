@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Przykład formatu Moodle XML (import: Moodle → Bank pytań → Importuj → format Moodle XML).
+
+  Te same trzy pytania co w przyklad.gift — ale XML niesie WIĘCEJ parametrów,
+  których GIFT nie zapisze. Dzięki temu pytanie trafia do Moodle „bogatsze":
+
+  * <category>          — pytania od razu lądują we wskazanej kategorii banku pytań
+  * <defaultgrade>      — ile punktów za pytanie (GIFT: zawsze 1)
+  * <penalty>           — kara za błędną próbę przy wielokrotnym podejściu (0.3333333 = 1/3)
+  * <shuffleanswers>    — czy Moodle losuje kolejność odpowiedzi
+  * <answernumbering>   — styl numeracji odpowiedzi (abc / ABCD / 123 / none)
+  * <generalfeedback>   — komentarz po pytaniu widoczny ZAWSZE, niezależnie od odpowiedzi
+  * <feedback> przy każdej odpowiedzi — jak #komentarz w GIFT
+  * <hint>              — podpowiedzi dla trybu interaktywnego (kolejne próby)
+  * format="html" + CDATA — treść może zawierać HTML: pogrubienia, listy, obrazki
+
+  Zasada praktyczna: GIFT = szybko i ręcznie czytelnie; XML = pełna kontrola nad
+  zachowaniem pytania w Moodle. Dobry skill potrafi wygenerować oba.
+-->
+<quiz>
+
+  <!-- Kategoria: wszystkie pytania poniżej trafią do tej gałęzi banku pytań -->
+  <question type="category">
+    <category>
+      <text>$course$/Kartkówki/Spektrum autonomii</text>
+    </category>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Token</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Jak nazywa się <b>jednostka tekstu</b>, którą model językowy przetwarza podczas analizy treści?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Modele językowe nie czytają liter ani słów — dzielą tekst na tokeny (fragmenty słów, znaki, interpunkcję).</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Token</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Dokładnie tak.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Piksel</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Piksel to jednostka obrazu, nie tekstu.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Bajt</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Bajt to jednostka pamięci, nie analizy tekstu przez model.</p>]]></text></feedback>
+    </answer>
+    <hint format="html">
+      <text><![CDATA[<p>Słowo pochodzi z angielskiego i oznacza „żeton".</p>]]></text>
+    </hint>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Rola czatu</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Które określenie najlepiej opisuje rolę <b>czatu AI</b> w pracy z kodem?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Kluczowe rozróżnienie wykładu: czat <i>doradza</i>, agent <i>wykonuje</i>. Odpowiedzialność za integrację odpowiedzi czatu zawsze pozostaje po stronie człowieka.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Doradza — generuje odpowiedzi, które człowiek sam integruje</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Tak — to definicja poziomu „czat" na spektrum autonomii.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Wykonuje — samodzielnie zmienia pliki projektu</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>To opis agenta, nie czatu.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Nadzoruje — kontroluje pracę programisty</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Czat niczego nie kontroluje.</p>]]></text></feedback>
+    </answer>
+    <hint format="html">
+      <text><![CDATA[<p>Kto wprowadza zmianę do pliku: narzędzie czy człowiek?</p>]]></text>
+    </hint>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Stawka zadania</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Zgodnie z zasadą <b>„stawka przed wygodą"</b> wysoka stawka zadania oznacza, że należy…</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Im wyższa cena błędu, tym bliżej człowieka powinna zostać decyzja — autonomię narzędzia dobieramy do stawki, nie do wygody.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>2</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>…przesunąć pracę w stronę większej kontroli człowieka</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Tak — wysoka stawka = więcej punktów kontroli.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>…wybrać narzędzie o największej autonomii, by zaoszczędzić czas</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Dokładnie odwrotnie.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>…zrezygnować z użycia jakichkolwiek narzędzi AI</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Nie zawsze — czasem wystarczy więcej punktów kontroli.</p>]]></text></feedback>
+    </answer>
+    <hint format="html">
+      <text><![CDATA[<p>Pomyśl o różnicy między kartkówką próbną a protokołem egzaminu dyplomowego.</p>]]></text>
+    </hint>
+  </question>
+
+</quiz>

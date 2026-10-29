@@ -1,0 +1,21 @@
+// Przykład poprawnego formatu GIFT (import: Moodle → Bank pytań → Importuj → format GIFT)
+// Komentarze zaczynają się od //. Każde pytanie: ::tytuł:: treść { odpowiedzi }
+// = odpowiedź poprawna, ~ odpowiedź błędna, #komentarz zwrotny po odpowiedzi
+
+::Token:: Jak nazywa się jednostka tekstu, którą model językowy przetwarza podczas analizy treści? {
+=Token
+~Piksel#Piksel to jednostka obrazu, nie tekstu.
+~Bajt#Bajt to jednostka pamięci, nie analizy tekstu przez model.
+}
+
+::Rola czatu:: Które określenie najlepiej opisuje rolę czatu AI w pracy z kodem? {
+=Doradza — generuje odpowiedzi, które człowiek sam integruje
+~Wykonuje — samodzielnie zmienia pliki projektu#To opis agenta, nie czatu.
+~Nadzoruje — kontroluje pracę programisty#Czat niczego nie kontroluje.
+}
+
+::Stawka zadania:: Zgodnie z zasadą „stawka przed wygodą" wysoka stawka zadania oznacza, że należy… {
+=…przesunąć pracę w stronę większej kontroli człowieka
+~…wybrać narzędzie o największej autonomii, by zaoszczędzić czas#Dokładnie odwrotnie.
+~…zrezygnować z użycia jakichkolwiek narzędzi AI#Nie zawsze — czasem wystarczy więcej punktów kontroli.
+}
